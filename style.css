@@ -20,3 +20,7 @@ h1 {
     height: 20px;
     outline: 1px solid gray;
 }
+
+.darkened {
+    background-color: lightgray;
+}

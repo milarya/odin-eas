@@ -13,3 +13,13 @@ for (i = 0; i < GRIDSIZE*GRIDSIZE; i++) {
     console.log(gridElement);
     container.appendChild(gridElement);
 }
+
+// event listeners for hover darken effect
+const gridElements = document.querySelectorAll('.gridElement');
+
+gridElements.forEach((element) => {
+    element.addEventListener('mouseenter', (event) => {
+        console.log(event.target);
+        event.target.setAttribute('class', 'darkened gridElement');
+    })
+});
