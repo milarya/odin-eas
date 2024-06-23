@@ -35,9 +35,13 @@ function createGrid(size) {
     const gridElements = document.querySelectorAll('.gridElement');
 
     gridElements.forEach((element) => {
+        // change background on hover
         element.addEventListener('mouseenter', (event) => {
-            // console.log(event.target);
-            event.target.setAttribute('class', 'darkened gridElement');
+            // set new styles
+            event.target.setAttribute('style', 
+                'width: ' + gridElementSize + 'px; ' + 
+                'height: ' + gridElementSize + 'px; ' +
+                'background-color: ' + updateColor(event.target));
         })
     });
 }
@@ -53,6 +57,43 @@ btnReset.addEventListener('click', () => {
         alert ('Creating a grid with default size');
     }
 });
+
+// helper functions
+
+
+// @todo fix this
+function updateColor(element) {
+    // if element has no background color yet, get a random one
+    if (!element.style.backgroundColor) {
+        console.log('returning a random color')
+        return getRandomColor();
+    } else if (element.style.backgroundColor) {
+        console.log('current color: ' + element.style.backgroundColor);
+        // if element has a background color, increase the opacity
+        console.log('increasing opacity');
+        const currentColor = element.style.backgroundColor;
+        let opacityValue = currentColor.match(/[\d\.]+\)$/g).toString().replace(')', '');
+
+        console.log('opacity value: ' + opacityValue);
+        let updatedColor = currentColor.replace(/[\d\.]+\)$/g, +opacityValue + 0.1);
+        console.log('updatedColor: '+ updatedColor);
+        return updatedColor;
+    }
+
+}
+
+function getRandomColor() {
+    const red = getRandomInt(255);
+    const green = getRandomInt(255);
+    const blue = getRandomInt(255);
+    const opacity = 0.1;
+    let calculatedColor = 'rgba(' + red + ', ' + green + ', ' + blue + ', ' + opacity + ')';
+    return calculatedColor;
+}
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
 
 // create initial grid to start game
 createGrid(DEFAULT_GRID_SIZE);

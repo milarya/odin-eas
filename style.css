@@ -1,5 +1,6 @@
 * {
     background-color: antiquewhite;
+    box-sizing: border-box;
 }
 
 h1 {
@@ -7,6 +8,7 @@ h1 {
 }
 
 .gridContainer {
+    margin: 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -14,9 +16,5 @@ h1 {
 }
 
 .gridElement {
-    outline: 1px solid gray;
-}
-
-.darkened {
-    background-color: lightgray;
+    border: 1px solid gray;
 }
