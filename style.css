@@ -7,8 +7,6 @@ h1 {
 }
 
 .gridContainer {
-    width: 320px;
-    height: 320px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -16,8 +14,7 @@ h1 {
 }
 
 .gridElement {
-    width: 20px;
-    height: 20px;
+    flex: 1 1 auto;
     outline: 1px solid gray;
 }
 

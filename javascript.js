@@ -1,6 +1,12 @@
-console.log('Javascript loaded');
+//console.log('Javascript loaded');
 
+// prepare grid container
 const container = document.querySelector('.gridContainer');
+
+const CONTAINERSIZE = 500;
+container.setAttribute('style', 
+    'width: ' + CONTAINERSIZE + 'px; ' + 
+    'height: ' + CONTAINERSIZE + 'px;');
 
 // create a grid to play a game
 function createGrid(size) {
@@ -10,12 +16,17 @@ function createGrid(size) {
     }
 
     // calculate + draw new grid
-    const gridSize = size
+    const gridSize = size;
+    const gridElementSize = CONTAINERSIZE / gridSize;
     for (i = 0; i < gridSize*gridSize; i++) {
         const gridElement = document.createElement('div');
         gridElement.setAttribute('id', i);
         gridElement.setAttribute('class', 'gridElement');
-        console.log(gridElement);
+        // calculate grid elment width + height
+        gridElement.setAttribute('style', 
+            'width: ' + gridElementSize + 'px; ' + 
+            'height: ' + gridElementSize + 'px;');
+        // console.log(gridElement);
         container.appendChild(gridElement);
     }
 
@@ -24,7 +35,7 @@ function createGrid(size) {
 
     gridElements.forEach((element) => {
         element.addEventListener('mouseenter', (event) => {
-            console.log(event.target);
+            // console.log(event.target);
             event.target.setAttribute('class', 'darkened gridElement');
         })
     });
