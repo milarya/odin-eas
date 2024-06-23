@@ -5,7 +5,7 @@ const container = document.querySelector('.gridContainer');
 container.setAttribute('style', 
     'width: ' + CONTAINER_SIZE + 'px; ' + 
     'height: ' + CONTAINER_SIZE + 'px;');
-const OPACITY_INCREASE = 0.2;
+const OPACITY_INCREASE = 0.1;
 
 // create a grid to play a game
 function createGrid(size) {
