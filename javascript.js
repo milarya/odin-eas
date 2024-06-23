@@ -1,13 +1,13 @@
 //console.log('Javascript loaded');
 
-const DEFAULTGRIDSIZE = 16;
+const DEFAULT_GRID_SIZE = 16;
 
 // prepare grid container
-const CONTAINERSIZE = 500;
+const CONTAINER_SIZE = 500;
 const container = document.querySelector('.gridContainer');
 container.setAttribute('style', 
-    'width: ' + CONTAINERSIZE + 'px; ' + 
-    'height: ' + CONTAINERSIZE + 'px;');
+    'width: ' + CONTAINER_SIZE + 'px; ' + 
+    'height: ' + CONTAINER_SIZE + 'px;');
 
 // create a grid to play a game
 function createGrid(size) {
@@ -18,7 +18,7 @@ function createGrid(size) {
 
     // calculate + draw new grid
     const gridSize = size;
-    const gridElementSize = CONTAINERSIZE / gridSize;
+    const gridElementSize = CONTAINER_SIZE / gridSize;
     for (i = 0; i < gridSize*gridSize; i++) {
         const gridElement = document.createElement('div');
         gridElement.setAttribute('id', i);
@@ -49,10 +49,10 @@ btnReset.addEventListener('click', () => {
     if (userInput <= 100 && userInput >= 1) {
         createGrid(userInput);
     } else {
-        createGrid(DEFAULTGRIDSIZE);
+        createGrid(DEFAULT_GRID_SIZE);
         alert ('Creating a grid with default size');
     }
 });
 
 // create initial grid to start game
-createGrid(DEFAULTGRIDSIZE);
+createGrid(DEFAULT_GRID_SIZE);
