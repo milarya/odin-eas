@@ -1,13 +1,11 @@
-//console.log('Javascript loaded');
-
-const DEFAULT_GRID_SIZE = 16;
-
 // prepare grid container
+const DEFAULT_GRID_SIZE = 16;
 const CONTAINER_SIZE = 500;
 const container = document.querySelector('.gridContainer');
 container.setAttribute('style', 
     'width: ' + CONTAINER_SIZE + 'px; ' + 
     'height: ' + CONTAINER_SIZE + 'px;');
+const OPACITY_INCREASE = 0.2;
 
 // create a grid to play a game
 function createGrid(size) {
@@ -27,7 +25,6 @@ function createGrid(size) {
         gridElement.setAttribute('style', 
             'width: ' + gridElementSize + 'px; ' + 
             'height: ' + gridElementSize + 'px;');
-        // console.log(gridElement);
         container.appendChild(gridElement);
     }
 
@@ -60,33 +57,24 @@ btnReset.addEventListener('click', () => {
 
 // helper functions
 
-
-// @todo fix this
 function updateColor(element) {
     // if element has no background color yet, get a random one
     if (!element.style.backgroundColor) {
-        console.log('returning a random color')
         return getRandomColor();
     } else if (element.style.backgroundColor) {
-        console.log('current color: ' + element.style.backgroundColor);
         // if element has a background color, increase the opacity
-        console.log('increasing opacity');
         const currentColor = element.style.backgroundColor;
-        let opacityValue = currentColor.match(/[\d\.]+\)$/g).toString().replace(')', '');
-
-        console.log('opacity value: ' + opacityValue);
-        let updatedColor = currentColor.replace(/[\d\.]+\)$/g, +opacityValue + 0.1);
-        console.log('updatedColor: '+ updatedColor);
+        let currentOpacityValue = currentColor.match(/[\d\.]+\)$/g).toString().replace(')', '');
+        let updatedColor = currentColor.replace(/[\d\.]+\)$/g, +currentOpacityValue + OPACITY_INCREASE);
         return updatedColor;
     }
-
 }
 
 function getRandomColor() {
     const red = getRandomInt(255);
     const green = getRandomInt(255);
     const blue = getRandomInt(255);
-    const opacity = 0.1;
+    const opacity = OPACITY_INCREASE;
     let calculatedColor = 'rgba(' + red + ', ' + green + ', ' + blue + ', ' + opacity + ')';
     return calculatedColor;
 }

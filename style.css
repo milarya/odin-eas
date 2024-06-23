@@ -1,10 +1,12 @@
 * {
     background-color: antiquewhite;
     box-sizing: border-box;
+    color: gray;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 h1 {
-    color: gray;
+    margin: 10px;
 }
 
 .gridContainer {
@@ -17,4 +19,13 @@ h1 {
 
 .gridElement {
     border: 1px solid gray;
+}
+
+button {
+    margin: 10px;
+    border: 3px solid gray;
+    background-color: antiquewhite;
+    font-size: large;
+    font-weight: bold;
+    padding: 10px 20px;
 }
