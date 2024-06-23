@@ -1,9 +1,10 @@
 //console.log('Javascript loaded');
 
-// prepare grid container
-const container = document.querySelector('.gridContainer');
+const DEFAULTGRIDSIZE = 16;
 
+// prepare grid container
 const CONTAINERSIZE = 500;
+const container = document.querySelector('.gridContainer');
 container.setAttribute('style', 
     'width: ' + CONTAINERSIZE + 'px; ' + 
     'height: ' + CONTAINERSIZE + 'px;');
@@ -44,8 +45,14 @@ function createGrid(size) {
 // event listener for reset grid
 const btnReset = document.querySelector('.btnReset');
 btnReset.addEventListener('click', () => {
-    createGrid(+prompt('Please enter desired size of grid'));
+    const userInput = +prompt('Please enter desired size of grid')
+    if (userInput <= 100 && userInput >= 1) {
+        createGrid(userInput);
+    } else {
+        createGrid(DEFAULTGRIDSIZE);
+        alert ('Creating a grid with default size');
+    }
 });
 
 // create initial grid to start game
-createGrid(16);
+createGrid(DEFAULTGRIDSIZE);
