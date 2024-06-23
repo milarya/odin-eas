@@ -5,3 +5,18 @@
 h1 {
     color: gray;
 }
+
+.gridContainer {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gridElement {
+    flex: 1;
+    width: 20px;
+    height: 20px;
+    border: 1px solid gray;
+}
